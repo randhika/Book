@@ -17,6 +17,20 @@ struct NetManager {
     static let KeyBooks = "books"
     static let netError = "网络异常，请检查网络"
     static let pageSize = 10
+    
+    static func getReviewsWithBookId(bookId: String,page:Int,resultClosure:(Bool,[Review]!)->Void) {
+        GET("https://api.douban.com/v2/book/\(bookId)/reviews", parameters: ["start":page * pageSize,"count":pageSize], showHUD:false, success: { (responseObject) -> Void in
+                var reviews = [Review]()
+                if let reviewsArray = (responseObject as? [String:NSObject])?["reviews"] as? [[String:NSObject]] {
+                    for dict in reviewsArray {
+                        reviews.append(Review(dict:dict))
+                    }
+                }
+                resultClosure(true,reviews)
+            },failure: { (error) -> Void in
+                resultClosure(false,nil)
+            })
+    }
 
     static func getBooks(tag:String, page:Int,resultClosure:(Bool,[Book]!) -> Void) {
         NetManager.GET(URLStringBooks, parameters: ["tag":tag,"start":page * pageSize,"count":pageSize],showHUD: false, success: { (responseObject) -> Void in

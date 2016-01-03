@@ -12,7 +12,7 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     //MARK: - Property -
     let identifierBookCell = "BookCell"
-    var tag = "Swift" //搜索关键字
+    var tag = "文学" //搜索关键字
     var page = 0 //搜索页码
     var books = [Book]()
 
@@ -23,7 +23,6 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addMJHeaderAndFooter()
         tableView.headerBeginRefresh()
         

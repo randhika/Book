@@ -12,6 +12,8 @@ class DetailViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     //MARK: - Property
     var book: Book!
+    var page = 0
+    var reviews = [Review]()
     
     //MARK: - IBOutlet -
     @IBOutlet weak var labelTitle: UILabel!
@@ -25,15 +27,44 @@ class DetailViewController: UIViewController,UITableViewDataSource,UITableViewDe
         } else {
             tableView.footerEndRefreshNoMoreData()
         }
+        
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView()
+        
+        tableView.footerAddMJRefresh { () -> Void in
+            NetManager.getReviewsWithBookId(self.book.id, page: self.page, resultClosure: { (result, reviews) -> Void in
+                if result {
+                    let count = self.reviews.count
+                    var indexPaths = [NSIndexPath]()
+                    for (i,review) in reviews.enumerate() {
+                        self.reviews.append(review)
+                        indexPaths.append(NSIndexPath(forRow: count+i, inSection: 0))
+                    }
+                    if indexPaths.isEmpty {
+                        self.tableView.footerEndRefreshNoMoreData()
+                    } else {
+                        self.page++
+                        self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+                    }
+                } else {
+                    self.view.makeToast("网络异常，请上拉重试")
+                }
+            })
+        }
+        
+        tableView.footerBeginRefresh()
     }
     
     //MARK: - UITableView -
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return reviews.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("ReviewCell") as! ReviewCell
+        cell.configureWithReview(reviews[indexPath.row])
+        return cell
     }
     
     //返回

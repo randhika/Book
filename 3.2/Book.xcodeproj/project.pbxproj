@@ -12,6 +12,9 @@
 		5C0ADDB11C36ACF200D80C14 /* DetailHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0ADDB01C36ACF200D80C14 /* DetailHeadView.swift */; };
 		5C0ADDB31C36ADB700D80C14 /* DetailHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C0ADDB21C36ADB700D80C14 /* DetailHeadView.xib */; };
 		5C7E194C1C391D8300E25280 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E194B1C391D8300E25280 /* DetailViewController.swift */; };
+		5C7E194E1C3959AB00E25280 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E194D1C3959AB00E25280 /* Review.swift */; };
+		5C7E19501C3959D300E25280 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E194F1C3959D300E25280 /* Author.swift */; };
+		5C7E19521C39601800E25280 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E19511C39601800E25280 /* ReviewCell.swift */; };
 		5CC819831C319BDE008CCB59 /* BookExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC819731C319BDE008CCB59 /* BookExtensions.swift */; };
 		5CC819841C319BDE008CCB59 /* UITableView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC819751C319BDE008CCB59 /* UITableView+MJRefresh.m */; };
 		5CC819851C319BDE008CCB59 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC819771C319BDE008CCB59 /* Book.swift */; };
@@ -33,6 +36,9 @@
 		5C0ADDB01C36ACF200D80C14 /* DetailHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHeadView.swift; sourceTree = "<group>"; };
 		5C0ADDB21C36ADB700D80C14 /* DetailHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHeadView.xib; sourceTree = "<group>"; };
 		5C7E194B1C391D8300E25280 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5C7E194D1C3959AB00E25280 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		5C7E194F1C3959D300E25280 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		5C7E19511C39601800E25280 /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		5CC819731C319BDE008CCB59 /* BookExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookExtensions.swift; sourceTree = "<group>"; };
 		5CC819741C319BDE008CCB59 /* UITableView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MJRefresh.h"; sourceTree = "<group>"; };
 		5CC819751C319BDE008CCB59 /* UITableView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MJRefresh.m"; sourceTree = "<group>"; };
@@ -71,6 +77,9 @@
 				5C7E194B1C391D8300E25280 /* DetailViewController.swift */,
 				5C0ADDB01C36ACF200D80C14 /* DetailHeadView.swift */,
 				5C0ADDB21C36ADB700D80C14 /* DetailHeadView.xib */,
+				5C7E194D1C3959AB00E25280 /* Review.swift */,
+				5C7E194F1C3959D300E25280 /* Author.swift */,
+				5C7E19511C39601800E25280 /* ReviewCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -299,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CC819861C319BDE008CCB59 /* BookCell.swift in Sources */,
+				5C7E19521C39601800E25280 /* ReviewCell.swift in Sources */,
 				5CC819881C319BDE008CCB59 /* NetManager.swift in Sources */,
 				5C0ADDAE1C36A49C00D80C14 /* Rating.swift in Sources */,
 				5C7E194C1C391D8300E25280 /* DetailViewController.swift in Sources */,
@@ -306,9 +316,11 @@
 				5CC8198E1C319CAB008CCB59 /* RatingView.swift in Sources */,
 				5C0ADDB11C36ACF200D80C14 /* DetailHeadView.swift in Sources */,
 				5CC819841C319BDE008CCB59 /* UITableView+MJRefresh.m in Sources */,
+				5C7E194E1C3959AB00E25280 /* Review.swift in Sources */,
 				5CC819871C319BDE008CCB59 /* BookViewController.swift in Sources */,
 				5CC819891C319BDE008CCB59 /* AppDelegate.swift in Sources */,
 				5CC819831C319BDE008CCB59 /* BookExtensions.swift in Sources */,
+				5C7E19501C3959D300E25280 /* Author.swift in Sources */,
 				5CC819851C319BDE008CCB59 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
