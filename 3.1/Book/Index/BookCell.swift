@@ -13,14 +13,17 @@ class BookCell: UITableViewCell {
 
     @IBOutlet weak var imageViewIcon: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var rating: UIView!
-
+    @IBOutlet weak var viewRatingContainer: UIView!
     @IBOutlet weak var labelDetail: UILabel!
     
     func configureWithBook(book:Book) {
         
         imageViewIcon.setResizeImageWith(book.image, width: imageViewIcon.frame.size.width)
-        RatingView.showInView(rating, value: 4.3)
+        if let rating = book.rating {
+            RatingView.showInView(viewRatingContainer, value: rating.average)
+        } else {
+            RatingView.showNoRating(viewRatingContainer)
+        }
         labelTitle.text = book.title
         
         var detail = ""

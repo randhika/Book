@@ -68,6 +68,7 @@ class RatingView: UIView {
     }
         
     static func showInView(view:UIView,value:Double,max:Double = 5) {
+        //view 存在 RatingView 子类
         for subview in view.subviews {
             if let subview = subview as? RatingView {
                 subview.value = value
@@ -77,7 +78,32 @@ class RatingView: UIView {
         
         let ratingView = RatingView(starHeight: Double(view.frame.size.height), max: max)
         
+        ratingView.hidden = false
         view.addSubview(ratingView)
         ratingView.value = value
+        
+        if let label = objc_getAssociatedObject(view, &KeyNoRating) as? UILabel {
+            label.hidden = true
+        }
+    }
+    
+    static var KeyNoRating = "KeyNoRating"
+    
+    //没有评分，显示无评分的 label
+    static func showNoRating(view:UIView) {
+        for subview in view.subviews {
+            if let subview = subview as? RatingView {
+                subview.hidden = true
+            }
+        }
+        var label:UILabel! = objc_getAssociatedObject(view, &KeyNoRating) as? UILabel
+        if label == nil {
+            label = UILabel(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height))
+            label.font = UIFont.systemFontOfSize(13)
+            view.addSubview(label)
+            label.text = "暂无评分"
+            objc_setAssociatedObject(view, &KeyNoRating, label, .OBJC_ASSOCIATION_ASSIGN)
+        }
+        label.hidden = false
     }
 }
