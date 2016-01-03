@@ -179,20 +179,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTX-oN-NQH">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="OBX-qk-zx5">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                        <animations/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JT-WF-8ss">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="44"/>
-                                        <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.28235294119999998" green="0.63137254899999995" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -258,7 +244,4 @@
             <point key="canvasLocation" x="1659" y="293"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="star_empty" width="32" height="32"/>
-    </resources>
 </document>
