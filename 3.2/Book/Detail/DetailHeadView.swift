@@ -24,6 +24,14 @@ class DetailHeadView: UIView {
     @IBOutlet weak var labelPublisher: UILabel!
     @IBOutlet weak var labelSummary: UILabel!
     
+    override func awakeFromNib() {
+        imageViewIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "showImage"))
+    }
+    
+    func showImage() {
+        
+    }
+    
     static func showInTableView(tableView: UITableView,book:Book) -> DetailHeadView {
         let headView = NSBundle.mainBundle().loadNibNamed("DetailHeadView", owner: nil, options: nil)[0] as! DetailHeadView
         headView.configureWith(tableView, book: book)

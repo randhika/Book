@@ -348,11 +348,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="j0H-MM-oHg">
-                                                    <rect key="frame" x="93" y="37" width="50" height="11"/>
+                                                    <rect key="frame" x="80" y="37" width="70" height="11"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="kzK-8x-H8E"/>
+                                                        <constraint firstAttribute="width" constant="70" id="kzK-8x-H8E"/>
                                                         <constraint firstAttribute="height" constant="11" id="uSB-Ky-Lw5"/>
                                                     </constraints>
                                                 </view>
@@ -403,7 +403,7 @@
                                                 <constraint firstItem="90t-TD-a1Z" firstAttribute="leading" secondItem="v3B-YY-AK1" secondAttribute="leading" id="jnt-L1-QNc"/>
                                                 <constraint firstItem="MFq-o7-VK6" firstAttribute="leading" secondItem="Rgs-j0-AU1" secondAttribute="trailing" constant="8" id="ksc-CG-fFU"/>
                                                 <constraint firstAttribute="bottom" secondItem="DT9-OG-Qw2" secondAttribute="bottom" constant="12" id="nXT-Hd-USp"/>
-                                                <constraint firstItem="j0H-MM-oHg" firstAttribute="leading" secondItem="90t-TD-a1Z" secondAttribute="trailing" constant="21" id="nzW-NW-sEZ"/>
+                                                <constraint firstItem="j0H-MM-oHg" firstAttribute="leading" secondItem="90t-TD-a1Z" secondAttribute="trailing" constant="8" id="nzW-NW-sEZ"/>
                                                 <constraint firstItem="aCe-rf-saP" firstAttribute="leading" secondItem="90t-TD-a1Z" secondAttribute="leading" id="sdo-u8-btA"/>
                                                 <constraint firstAttribute="trailing" secondItem="aCe-rf-saP" secondAttribute="trailing" constant="8" id="tSG-sa-78q"/>
                                                 <constraint firstItem="Rgs-j0-AU1" firstAttribute="leading" secondItem="DT9-OG-Qw2" secondAttribute="trailing" constant="8" id="w7g-bJ-P54"/>

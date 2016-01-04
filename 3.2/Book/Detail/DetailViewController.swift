@@ -31,7 +31,9 @@ class DetailViewController: UIViewController,UITableViewDataSource,UITableViewDe
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         tableView.footerAddMJRefresh { () -> Void in
             NetManager.getReviewsWithBookId(self.book.id, page: self.page, resultClosure: { (result, reviews) -> Void in
                 if result {
@@ -46,9 +48,11 @@ class DetailViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     } else {
                         self.page++
                         self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+                        self.tableView.footerEndRefresh()
                     }
                 } else {
                     self.view.makeToast("网络异常，请上拉重试")
+                    self.tableView.footerEndRefresh()
                 }
             })
         }
@@ -71,4 +75,5 @@ class DetailViewController: UIViewController,UITableViewDataSource,UITableViewDe
     @IBAction func back(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
     }
+    
 }
