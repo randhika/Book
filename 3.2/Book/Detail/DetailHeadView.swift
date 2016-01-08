@@ -62,6 +62,7 @@ class DetailHeadView: UIView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         frame.size.height = viewContainer.frame.size.height
         tableView.tableHeaderView = self
     }
