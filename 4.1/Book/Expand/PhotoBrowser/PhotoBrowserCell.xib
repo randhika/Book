@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoBrowserCell" id="MtI-OG-ADP" customClass="PhotoBrowserCell" customModule="Book" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="vsh-wn-d7b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGs-za-Upk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="wGs-za-Upk" secondAttribute="bottom" id="O9i-Pf-cVf"/>
+                            <constraint firstItem="wGs-za-Upk" firstAttribute="leading" secondItem="vsh-wn-d7b" secondAttribute="leading" id="TUX-ez-umh"/>
+                            <constraint firstItem="wGs-za-Upk" firstAttribute="centerY" secondItem="vsh-wn-d7b" secondAttribute="centerY" id="e9O-ji-wfg"/>
+                            <constraint firstItem="wGs-za-Upk" firstAttribute="centerX" secondItem="vsh-wn-d7b" secondAttribute="centerX" id="jiY-Ha-VWA"/>
+                            <constraint firstItem="wGs-za-Upk" firstAttribute="top" secondItem="vsh-wn-d7b" secondAttribute="top" id="pYa-nJ-dgT"/>
+                            <constraint firstAttribute="trailing" secondItem="wGs-za-Upk" secondAttribute="trailing" id="qlv-tk-Zv6"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="delegate" destination="MtI-OG-ADP" id="4aC-Z7-G7u"/>
+                        </connections>
+                    </scrollView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="vsh-wn-d7b" firstAttribute="top" secondItem="MtI-OG-ADP" secondAttribute="top" id="Fv5-no-sJZ"/>
+                <constraint firstAttribute="trailing" secondItem="vsh-wn-d7b" secondAttribute="trailing" id="HyN-gh-4XC"/>
+                <constraint firstItem="vsh-wn-d7b" firstAttribute="leading" secondItem="MtI-OG-ADP" secondAttribute="leading" id="Kcf-a3-kYY"/>
+                <constraint firstAttribute="bottom" secondItem="vsh-wn-d7b" secondAttribute="bottom" id="Uxt-Zz-1cE"/>
+            </constraints>
+            <connections>
+                <outlet property="imageView" destination="wGs-za-Upk" id="RWF-1a-7wV"/>
+                <outlet property="scrollView" destination="vsh-wn-d7b" id="CK3-XC-kA2"/>
+            </connections>
+            <point key="canvasLocation" x="245" y="253"/>
+        </collectionViewCell>
+    </objects>
+</document>
