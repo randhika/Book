@@ -10,9 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController,UIWebViewDelegate {
 
-    //应用的唯一标识，对应于APIKey
-    let client_id = "044a3a0984e7ef550cdeae1c8eb7cdff"
-    let client_secret = "eb0d6aeeede176e6"
     //用户授权完成后的回调地址，应用需要通过此回调地址获得用户的授权结果。此地址必须与在应用注册时填写的回调地址一致。
     let redirect_uri = "https://www.baidu.com"
     
@@ -47,12 +44,5 @@ class LoginViewController: UIViewController,UIWebViewDelegate {
         }
         return true
     }
-    
-    //isOAuthing
-    var isOAuthing = false
-    func webViewDidFinishLoad(webView: UIWebView) {
-        if let URLString = webView.request?.URL?.absoluteString {
-            print("didFinishLoad:\(URLString)")
-        }
-    }
+
 }

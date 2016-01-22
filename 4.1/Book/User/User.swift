@@ -17,16 +17,53 @@ class User: NSObject,NSCoding {
     let KeyRefresh_token = "refresh_token"
     let KeyDouban_user_id = "douban_user_id"
     
-    //单例
-    static let sharedUser = NSKeyedUnarchiver.unarchiveObjectWithFile(documentPath + "/user") as? User ?? User()
+    //User Info
+    let KeyAlt = "alt";//个人主页
+    let KeyAvatar = "avatar"
+    let KeyCreated = "created"
+    let KeyDesc = "desc";
+    let KeyId = "id"
+    let KeyIs_banned = "is_banned"
+    let KeyIs_suicide = "is_suicide"
+    let KeyLarge_avatar = "large_avatar"
+    let KeyLoc_id = "loc_id"
+    let KeyLoc_name = "loc_name"
+    let KeyName = "name"
+    let KeySignature = "signature"
+    let KeyType = "type"
+    let KeyUid = "uid"
     
-    //User登陆信息
-    //过期时间
+    //单例
+    static let sharedUser = NSKeyedUnarchiver.unarchiveObjectWithFile(DocumentPath + "/user") as? User ?? User()
+    
+    //相对于1970年的过期日期
     var expires_time = 0.0
     var access_token = ""
     var douban_user_name = ""
     var refresh_token = ""
-    var douban_user_id = ""
+    var douban_user_id = "" {
+        didSet {
+            if !douban_user_id.isEmpty && oldValue != douban_user_id {
+                NetManager.getUserInfo(nil)
+            }
+        }
+    }
+    
+    //User Info
+    var alt = "";//个人主页
+    var avatar = ""
+    var created = ""
+    var desc = "";
+    var id = 0
+    var is_banned = 0
+    var is_suicide = 0
+    var large_avatar = ""
+    var loc_id = 0
+    var loc_name = ""
+    var name = ""
+    var signature = ""
+    var type = ""
+    var uid = ""
     
     var isLogin:Bool {
         if !access_token.isEmpty && expires_time > NSDate().timeIntervalSince1970 {
@@ -34,6 +71,23 @@ class User: NSObject,NSCoding {
         } else {
             return false
         }
+    }
+    
+    func updateUserInfoWithDict(dict:[String:NSObject]) {
+        alt = dict[KeyAlt] as? String ?? "";//个人主页
+        avatar = dict[KeyAvatar] as? String ?? ""
+        created = dict[KeyCreated] as? String ?? ""
+        desc = dict[KeyDesc] as? String ?? ""
+        id = dict[KeyId] as? Int ?? 0
+        is_banned = dict[KeyIs_banned] as? Int ?? 0
+        is_suicide = dict[KeyIs_suicide] as? Int ?? 0
+        large_avatar = dict[KeyLarge_avatar] as? String ?? ""
+        loc_id = dict[KeyLoc_id] as? Int ?? 0
+        loc_name = dict[KeyLoc_name] as? String ?? ""
+        name = dict[KeyName] as? String ?? ""
+        signature = dict[KeySignature] as? String ?? ""
+        type = dict[KeyType] as? String ?? ""
+        uid = dict[KeyUid] as? String ?? ""
     }
     
     func loginWithDict(dict:[String:NSObject]) {
@@ -44,7 +98,7 @@ class User: NSObject,NSCoding {
         douban_user_name = dict[KeyDouban_user_name] as? String ?? ""
         refresh_token = dict[KeyRefresh_token] as? String ?? ""
         douban_user_id = dict[KeyDouban_user_id] as? String ?? ""
-        NSKeyedArchiver.archiveRootObject(self, toFile: documentPath + "/user")
+        NSKeyedArchiver.archiveRootObject(self, toFile: DocumentPath + "/user")
     }
     
     func logout() {

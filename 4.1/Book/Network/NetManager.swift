@@ -17,6 +17,25 @@ struct NetManager {
     static let KeyBooks = "books"
     static let netError = "网络异常，请检查网络"
     static let pageSize = 10
+    static let URLStringGetUserInfo = "https://api.douban.com/v2/user/"
+    
+    static var getUserInfoClosure:((Bool) -> ())?
+    static var isRequestUserInfo = false
+    static func getUserInfo(resultClosure:((Bool)->())?) {
+        getUserInfoClosure = resultClosure
+        if isRequestUserInfo {
+            return
+        }
+        isRequestUserInfo = true
+        GET(URLStringGetUserInfo + User.sharedUser.douban_user_id, parameters: nil, showHUD: false, success: { (responseObject) -> Void in
+            User.sharedUser.updateUserInfoWithDict(responseObject as? [String:NSObject] ?? [:])
+                getUserInfoClosure?(true)
+                isRequestUserInfo = false
+            }, failure:{ (error) -> Void in
+                getUserInfoClosure?(false)
+                isRequestUserInfo = false
+            })
+    }
     
     struct OAuthLogin {
         static let URLStringLogin = "https://www.douban.com/service/auth2/token"

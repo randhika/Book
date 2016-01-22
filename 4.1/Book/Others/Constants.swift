@@ -8,7 +8,7 @@
 
 import UIKit
 
-let documentPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true)[0]
+let DocumentPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true)[0]
 
 let MainWindow = UIApplication.sharedApplication().delegate!.window!!
 

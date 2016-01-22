@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class BookViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -37,13 +36,25 @@ class BookViewController: UIViewController,UITableViewDataSource,UITableViewDele
         searchController = storyboard?.instantiateViewControllerWithIdentifier("BookSearchController") as! BookSearchController
         searchController.bookController = self
         searchView.addSubview(searchController.searchController.searchBar)
-        searchController.searchController.searchBar.snp_makeConstraints { (make) -> Void in
-            make.edges.equalTo(searchView)
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
-        btnUser.selected = User.sharedUser.isLogin
+        if User.sharedUser.isLogin {
+            if User.sharedUser.avatar.isEmpty {
+                NetManager.getUserInfo({ (result) -> () in
+                    if result {
+                        self.btnUser.sd_setImageWithURL(NSURL(string: User.sharedUser.avatar), forState: .Normal)
+                    }
+                })
+            } else {
+                btnUser.sd_setImageWithURL(NSURL(string: User.sharedUser.avatar), forState: .Application)
+            }
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        searchController.searchController.searchBar.frame = searchView.bounds
     }
     
     //MARK: - IBAction -
